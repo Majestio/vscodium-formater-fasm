@@ -1,0 +1,56 @@
+{
+    "name": "formatter-fasm",
+    "displayName": "Formatter for FASM",
+    "description": "Formatter for Assembly Language (fasm)",
+    "version": "0.0.1",
+    "publisher": "Majestio",
+   	"homepage": "https://github.com/Majestio/FasmFormatter",
+		"license": "Apache License Version 2.0",
+	  "icon": "fasm-logo.png",
+    "engines": {
+			"vscode": "^1.6.0"
+    },
+    "categories": [
+ 			"Formatters",
+			"Programming Languages"
+    ],
+		"keywords": [
+	 		"asm",
+	 		"fasm",
+			"format",
+			"beautifier"
+		],
+    "activationEvents": [
+			"onLanguage:fasm"
+    ],
+    "main": "./src/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "fasm",
+                "aliases": [
+                    "Fasm"
+                ],
+                "extensions": [
+                    "fasm",
+                    "asm"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.format-fasm",
+                "title": "Fasm: format This File",
+        				"when": "!inOutput && editorFocus && editorLangId == fasm"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install && tsc"
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "vscode": "1.0.3",
+        "typescript": "2.0.6"
+    }
+}
